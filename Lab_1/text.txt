@@ -1,0 +1,9 @@
+Data
+Phone
+Iphone
+Hello
+Nice
+Simple
+Text
+
+Total words: 7
