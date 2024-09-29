@@ -29,7 +29,7 @@ class Mammal extends Animal {
     }
 
     public function makeSound() {
-        echo "Ця тварина видає звук, характерний для ссавців.<br>";
+        echo "Ця тварина видає звук, характерний для ссавців.\n";
     }
 
     public function getFurColor() {
@@ -37,9 +37,32 @@ class Mammal extends Animal {
     }
 }
 
+// Дочірній клас Птах
+class Bird extends Animal {
+    private $wingSpan;
+
+    public function __construct($speciesName, $numberOfLimbs, $numberOfOffspring, $wingSpan) {
+        parent::__construct($speciesName, $numberOfLimbs, $numberOfOffspring);
+        $this->wingSpan = $wingSpan;
+    }
+
+    public function makeSound() {
+        echo "Ця тварина видає звук, характерний для птахів.\n";
+    }
+
+    public function getWingSpan() {
+        return $this->wingSpan;
+    }
+}
+
 // Приклад використання
 $dog = new Mammal("Собака", 4, 5, "Коричневий");
-echo $dog->getInfo() . "<br>"."\n";
-echo "Колір хутра: " . $dog->getFurColor() . "<br>"."\n";
+echo $dog->getInfo() . "\n";
+echo "Колір хутра: " . $dog->getFurColor() . "\n";
 $dog->makeSound();
 
+$eagle = new Bird("Орел", 2, 3, "2 метри");
+echo $eagle->getInfo() . "\n";
+echo "Розмах крил: " . $eagle->getWingSpan() . "\n";
+$eagle->makeSound();
+?>
