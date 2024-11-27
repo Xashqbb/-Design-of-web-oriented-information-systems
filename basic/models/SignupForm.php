@@ -1,41 +1,24 @@
 <?php
 
-namespace app\models;
-
-use Yii;
-use yii\base\Model;
-use app\models\User;
-
-class SignupForm extends Model
+class SignupCest
 {
-    public $username;
-    public $email;
-    public $password;
-
-    public function rules()
+    public function _before(FunctionalTester $I)
     {
-        return [
-            [['username', 'email', 'password'], 'required'],
-            ['email', 'email'],
-            ['email', 'unique', 'targetClass' => User::class],
-            ['username', 'unique', 'targetClass' => User::class], // Перевірка унікальності username
-            ['password', 'string', 'min' => 6],
-        ];
+        // Setup or create any test data here
     }
 
-    public function signup()
+    // Test for signup with valid data
+    public function testSignupWithValidData(FunctionalTester $I)
     {
-        if (!$this->validate()) {
-            return null;
-        }
+        $I->amOnPage('/site/signup');  // Ensure you are on the signup page
 
-        $user = new User();
-        $user->username = $this->username; // використовуємо 'username'
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
+        // Submit the form with valid data
+        $I->submitForm("#signup-form", [
+            'SignupForm[username]' => 'testuser',
+            'SignupForm[password]' => 'password123',
+        ]);
 
-        return $user->save() ? $user : null;
+        // Check if the signup was successful by seeing a confirmation or redirection
+        $I->see('Welcome, testuser');
     }
 }
-

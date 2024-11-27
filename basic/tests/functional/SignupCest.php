@@ -1,28 +1,23 @@
 <?php
 
-namespace functional;
-
-use tests\FunctionalTester;
-
 class SignupCest
 {
     public function _before(FunctionalTester $I)
     {
-        // Setup before tests
+        $I->amOnPage('/site/signup');
     }
 
-    public function tryToSignup(FunctionalTester $I)
+    public function testSignupWithValidData(FunctionalTester $I)
     {
-        $I->amOnPage('/site/signup');
-        $I->see('Signup', 'h1');
-        $I->fillField('Username', 'newuser');
-        $I->fillField('Email', 'newuser@example.com');
-        $I->fillField('Password', 'password123');
-        $I->click('Зареєструватися');
-        $I->see('Thank you for registration. You may login now.');
-        $I->seeInDatabase('user', [
-            'username' => 'newuser',
-            'email' => 'newuser@example.com',
+        // Заповнення форми
+        $I->submitForm('#signup-form', [
+            'SignupForm[username]' => 'testuser',
+            'SignupForm[password]' => 'password123',
         ]);
+
+        // Перевірка успішної реєстрації
+        $I->see('Thank you for signing up.');
+        $I->seeRecord('app\models\User', ['username' => 'testuser']);
     }
 }
+

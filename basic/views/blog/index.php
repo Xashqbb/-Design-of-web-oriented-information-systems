@@ -11,7 +11,7 @@ use yii\widgets\LinkPager;
                 <?= Html::encode($post->title) ?>
             </h2>
             <p>
-                <?= Html::encode($post->excerpt) ?> <!-- Виводимо анонс, якщо є -->
+                <?= Html::encode($post->excerpt) ?>
             </p>
             <p>
                 <a href="<?= yii\helpers\Url::to(['blog/view', 'id' => $post->id]) ?>">Читати далі</a>
