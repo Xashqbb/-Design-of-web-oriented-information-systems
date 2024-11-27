@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="PYTHON_MODULE" version="4">
+<module type="WEB_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/basic" isTestSource="false" packagePrefix="app" />
       <sourceFolder url="file://$MODULE_DIR$/basic/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/behat/gherkin" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/bower-asset/bootstrap" />
@@ -88,6 +89,7 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-faker" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-gii" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/yiisoft/yii2-symfonymailer" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/codeception/module-db" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

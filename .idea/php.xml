@@ -12,7 +12,6 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/basic/vendor/psr/container" />
       <path value="$PROJECT_DIR$/basic/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/basic/vendor/psr/http-factory" />
@@ -98,6 +97,7 @@
       <path value="$PROJECT_DIR$/basic/vendor/codeception/stub" />
       <path value="$PROJECT_DIR$/basic/vendor/codeception/verify" />
       <path value="$PROJECT_DIR$/basic/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/basic/vendor/codeception/module-db" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />

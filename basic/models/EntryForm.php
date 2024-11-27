@@ -6,20 +6,16 @@ use yii\base\Model;
 
 class EntryForm extends Model
 {
-    public $name;
-    public $email;
+    public $username;
+    public $password;
 
     public function rules()
     {
         return [
-
-            [['name', 'email'], 'required'],
-
-            ['email', 'email'],
-
-            ['name', 'string', 'max' => 50],
-
-            ['name', 'match', 'pattern' => '/^[a-zа-яіїєґ\s]+$/iu', 'message' => 'Поле "Ім’я" має містити тільки літери.']
+            [['username', 'password'], 'required'],  // Валідація для обох полів
+            ['username', 'string', 'max' => 50],
+            ['username', 'match', 'pattern' => '/^[a-zа-яіїєґ\s]+$/iu', 'message' => 'Поле "Ім’я" має містити тільки літери.'],
+            ['password', 'string', 'min' => 6],  // Валідація для пароля
         ];
     }
 }
